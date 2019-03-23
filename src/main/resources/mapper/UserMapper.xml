@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ciyaz.hrpms.mapper.UserMapper">
+	<select id="getUserById" resultMap="userMap">
+		SELECT
+			user_id,
+			username,
+			password,
+			freezed
+		FROM t_user
+		WHERE user_id = #{userId}
+	</select>
+	<select id="getUserByUsername" resultMap="userMap">
+		SELECT
+			user_id,
+			username,
+			password,
+			freezed
+		FROM t_user
+		WHERE username = #{username}
+	</select>
+	<resultMap id="userMap" type="com.ciyaz.hrpms.domain.User">
+		<id property="userId" column="user_id"/>
+		<result property="username" column="username"/>
+		<result property="password" column="password"/>
+		<result property="freezed" column="freezed"/>
+	</resultMap>
+</mapper>

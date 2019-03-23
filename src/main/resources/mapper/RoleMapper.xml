@@ -10,6 +10,15 @@
 		FROM t_role
 		WHERE role_id = #{roleId}
 	</select>
+	<select id="getRoleListByUserId" resultMap="roleMap">
+		SELECT
+			t_role.role_id,
+			t_role.role_name
+		FROM t_role
+			INNER JOIN t_user_role ON t_role.role_id = t_user_role.role_id
+			INNER JOIN t_user ON t_user_role.user_id = t_user.user_id
+		WHERE t_user.user_id = #{userId}
+	</select>
 	<resultMap id="roleMap" type="com.ciyaz.hrpms.domain.Role">
 		<id property="roleId" column="role_id"/>
 		<result property="roleName" column="role_name"/>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>登录</title>
+	<link th:href="@{/static/easyui-1.6.2/themes/default/easyui.css}" type="text/css" rel="stylesheet" />
+	<link th:href="@{/static/easyui-1.6.2/themes/icon.css}" type="text/css" rel="stylesheet" />
+	<script th:src="@{/static/jquery-3.3.1/jquery-3.3.1.min.js}"></script>
+	<script th:src="@{/static/easyui-1.6.2/jquery.easyui.min.js}"></script>
+	<script th:src="@{/static/app/login.js}"></script>
+	<link th:href="@{/static/css/login.css}" type="text/css" rel="stylesheet" />
+</head>
+<body>
+<span id="contextPath" style="display: none;">[[@{/}]]</span>
+<div id="login-window" class="easyui-window" title="系统登录" style="width:330px;height:200px;">
+	<form id="login-form" style="padding:10px 20px 10px 40px;" method="post" th:action="@{/login}">
+
+		<table>
+			<tr>
+				<td><label for="username">用户名</label></td>
+				<td><input type="text" th:value="${username}" id="username" name="username" required /></td>
+			</tr>
+			<tr>
+				<td><label for="password">密码</label></td>
+				<td><input type="password" id="password" name="password" required /></td>
+			</tr>
+			<tr>
+				<td th:if="${err_msg != null}" colspan="2" style="color: red" th:text="${err_msg}">
+				</td>
+			</tr>
+		</table>
+		<div style="padding:5px;text-align:right;margin-top: 15px; margin-right: 25px">
+			<a class="easyui-linkbutton" icon="icon-cancel" onclick="resetForm()">重置</a>
+			<a class="easyui-linkbutton" icon="icon-ok" onclick="submitForm()">登录</a>
+		</div>
+	</form>
+</div>
+</body>
+</html>

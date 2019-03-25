@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>储蓄账户类型管理</title>
+	<link th:href="@{/static/easyui-1.6.2/themes/default/easyui.css}" type="text/css" rel="stylesheet"/>
+	<link th:href="@{/static/easyui-1.6.2/themes/icon.css}" type="text/css" rel="stylesheet"/>
+	<script th:src="@{/static/jquery-3.3.1/jquery-3.3.1.min.js}"></script>
+	<script th:src="@{/static/easyui-1.6.2/jquery.easyui.min.js}"></script>
+	<link th:href="@{/static/css/global.css}" type="text/css" rel="stylesheet" />
+	<script th:src="@{/static/app/account_type_manage.js}"></script>
+</head>
+<body>
+<div style="padding: 10px;">
+	<div>
+		<a class="easyui-linkbutton" data-options="iconCls:'icon-add'">新增</a>
+		<a class="easyui-linkbutton" data-options="iconCls:'icon-reload'" onclick="reloadDataGrid()">刷新</a>
+	</div>
+	<div style="margin-top: 5px">
+		<table id="account-type-table" class="easyui-datagrid" style="margin-top: 15px">
+			<thead>
+			<tr>
+				<th data-options="field:'code'">储蓄账户类型ID</th>
+				<th data-options="field:'name'">储蓄账户类型名称</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td>001</td><td>name1</td>
+			</tr>
+			<tr>
+				<td>002</td><td>name2</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+</body>
+</html>

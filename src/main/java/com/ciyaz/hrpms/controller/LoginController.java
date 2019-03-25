@@ -88,7 +88,7 @@ public class LoginController
 			session.setAttribute("user", user);
 			session.setAttribute("roleList", roleList);
 
-			return "redirect:/dashboard";
+			return "redirect:/index";
 		}
 	}
 

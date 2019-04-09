@@ -13,7 +13,7 @@
 <body>
 <div style="padding: 10px;">
 	<div>
-		<a class="easyui-linkbutton" data-options="iconCls:'icon-add'">新增</a>
+		<a class="easyui-linkbutton" data-options="iconCls:'icon-add'" onclick="showAddAccountTypeButton()">新增</a>
 		<a class="easyui-linkbutton" data-options="iconCls:'icon-reload'" onclick="reloadDataGrid()">刷新</a>
 	</div>
 	<div style="margin-top: 5px">
@@ -33,6 +33,21 @@
 			</tr>
 			</tbody>
 		</table>
+	</div>
+	<div id="add-account-type-win" class="easyui-window" title="添加储蓄账户类型名称" style="width:380px;height:160px"
+	     data-options="iconCls:'icon-save',modal:true, closed:true">
+		<form id="add-account-type-form" style="padding:10px 20px 10px 40px;">
+			<table>
+				<tr>
+					<td><label for="account-type">储蓄账户类型名称</label></td>
+					<td><input type="text" id="account-type" name="account-type" required /></td>
+				</tr>
+			</table>
+			<div id="add-err-msg" style="color: red"></div>
+			<div style="padding:5px;text-align:right;margin-top: 15px; margin-right: 25px">
+				<a class="easyui-linkbutton" icon="icon-ok" onclick="submitForm()">确认添加</a>
+			</div>
+		</form>
 	</div>
 </div>
 </body>

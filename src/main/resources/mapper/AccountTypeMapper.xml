@@ -24,4 +24,8 @@
 		SET account_type_id = 1
 		WHERE account_type_id = #{accountTypeId}
 	</update>
+
+	<insert id="addAccountType">
+		insert into t_account_type (account_type_name) values (#{accountTypeName})
+	</insert>
 </mapper>

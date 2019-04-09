@@ -45,4 +45,19 @@ public class AccountTypeManageController
 		accountService.deleteAccountType(accountTypeId);
 		return "{\"msg\":\"success\"}";
 	}
+
+	@ResponseBody
+	@RequestMapping(value = "/addAccountType", method = RequestMethod.POST)
+	public String addAccountType(@RequestParam String accountType)
+	{
+		if (!"".equals(accountType) && accountType.length() <= 20)
+		{
+			accountService.addAccountType(accountType);
+			return "{\"msg\":\"success\"}";
+		}
+		else
+		{
+			return "{\"msg\":\"failed\"}";
+		}
+	}
 }

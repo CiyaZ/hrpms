@@ -23,4 +23,11 @@ public interface AccountTypeMapper
 	 * @param accountTypeId 账户类型ID
 	 */
 	void deleteAccountTypeById(@Param("accountTypeId") Long accountTypeId);
+
+	/**
+	 * 添加账户类型名称
+	 *
+	 * @param accountTypeName 账户类型名称
+	 */
+	void addAccountType(@Param("accountTypeName") String accountTypeName);
 }

@@ -39,4 +39,10 @@ public class AccountServiceImpl implements AccountService
 		accountMapper.resetAccountsByAccountTypeId(accountTypeId);
 		accountTypeMapper.deleteAccountTypeById(accountTypeId);
 	}
+
+	@Override
+	public void addAccountType(String accountTypeName)
+	{
+		accountTypeMapper.addAccountType(accountTypeName);
+	}
 }

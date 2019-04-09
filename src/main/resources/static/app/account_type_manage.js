@@ -21,6 +21,39 @@ $(function ()
 	});
 });
 
+function showAddAccountTypeButton()
+{
+	$('#add-account-type-win').window('open');
+}
+
+function submitForm()
+{
+	var accountType = $('#account-type').val();
+	$.ajax({
+		type: "POST",
+		async: true,
+		url: '/addAccountType',
+		data: {accountType: accountType},
+		dataType: "json",
+		success: function (msg)
+		{
+			if(msg.msg === 'success')
+			{
+				$('#add-account-type-win').window('close');
+				reloadDataGrid();
+			}
+			else
+			{
+				$('#add-err-msg').text('输入不符合要求，呼入必须小于20个字');
+			}
+		},
+		error: function (err)
+		{
+			$('#add-err-msg').text('网络错误：删除过程中出错，请稍后重试！');
+		}
+	});
+}
+
 function reloadDataGrid()
 {
 	$('#account-type-table').datagrid('reload');

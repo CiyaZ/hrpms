@@ -22,4 +22,11 @@ public interface AccountService
 	 * @param accountTypeId 账户类型ID
 	 */
 	void deleteAccountType(Long accountTypeId);
+
+	/**
+	 * 添加账户类型
+	 *
+	 * @param accountTypeName 账户类型名
+	 */
+	void addAccountType(String accountTypeName);
 }
